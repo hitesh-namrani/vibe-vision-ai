@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+/* --- GLOBAL LAYOUT --- */
+body {
+  margin: 0;
+  background-color: #020617; /* Deep Space Blue */
+  background-image: 
+    radial-gradient(circle at 50% 0%, #1e1b4b 0%, transparent 60%),
+    radial-gradient(circle at 0% 50%, #312e81 0%, transparent 50%);
+  font-family: 'Inter', sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* --- GLASS CARD (Main Box) --- */
+.glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  animation: floatUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- TYPOGRAPHY --- */
+h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  background: linear-gradient(135deg, #c084fc 0%, #a855f7 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 20px; }
+
+/* --- INPUTS & FORMS --- */
+.auth-form { display: flex; flex-direction: column; gap: 12px; }
+
+.vibe-input {
+  width: 100%;
+  padding: 16px;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid #334155;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.vibe-input:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.15);
+}
+
+/* --- BUTTONS --- */
+.login-btn, .action-btn {
+  width: 100%;
+  padding: 16px;
+  margin-top: 10px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.login-btn { background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%); }
+.action-btn { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); margin-bottom: 15px; }
+
+.login-btn:hover, .action-btn:hover { transform: translateY(-2px); }
+.login-btn:disabled { opacity: 0.7; cursor: wait; }
+
+.topup-btn {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px dashed rgba(148, 163, 184, 0.4);
+  color: #94a3b8;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.topup-btn:hover { border-color: #a855f7; color: #a855f7; }
+
+.toggle { margin-top: 20px; color: #cbd5e1; cursor: pointer; text-decoration: underline; font-size: 0.9rem; }
+
+/* --- HEADER & LOGOUT --- */
+.header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 25px; padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.user-info { display: flex; align-items: center; gap: 10px; }
+.user-info h2 { margin: 0; font-size: 1.2rem; }
+
+.credits-pill {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399; padding: 4px 10px;
+  border-radius: 20px; font-weight: 700; font-size: 0.9rem;
+}
+
+.logout-btn {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid #ef4444;
+  color: #fca5a5;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+}
+.logout-btn:hover { background: #ef4444; color: white; }
+
+/* --- COIN SELECTOR --- */
+.coin-selector { text-align: left; margin-bottom: 15px; }
+.coin-selector label { display: block; color: #94a3b8; font-size: 0.8rem; margin-bottom: 5px; }
+.vibe-select {
+  width: 100%; padding: 12px;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid #334155;
+  color: white; border-radius: 10px; outline: none;
+}
+
+/* --- PAYMENT MODAL (FIXED OVERLAY) --- */
+.modal-overlay {
+  position: fixed; top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 9999;
+}
+
+.payment-card {
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  padding: 25px; border-radius: 20px;
+  width: 90%; max-width: 350px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-header { display: flex; justify-content: space-between; margin-bottom: 20px; }
+.card-header h3 { margin: 0; color: white; }
+.card-logo { font-style: italic; font-weight: 900; opacity: 0.7; }
+
+.amount-input {
+  width: 100%; background: transparent; border: none;
+  border-bottom: 2px solid #a855f7;
+  color: white; font-size: 2rem; font-weight: bold;
+  padding: 5px 0; margin-bottom: 20px; outline: none;
+}
+
+.pay-btn {
+  background: #22c55e; width: 100%; padding: 14px;
+  border: none; border-radius: 12px; color: white; font-weight: bold;
+  cursor: pointer; margin-top: 10px;
+}
+.close-btn {
+  width: 100%; padding: 12px; margin-top: 10px;
+  background: transparent; border: 1px solid #ef4444; color: #ef4444;
+  border-radius: 12px; font-weight: 600; cursor: pointer;
+}
+.close-btn:hover { background: rgba(239, 68, 68, 0.1); }
+
+/* --- RESULTS & TOASTS --- */
+.result-card {
+  margin-top: 20px; background: rgba(255,255,255,0.05);
+  padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);
+}
+.coin-badge {
+  display: inline-block; background: #334155; padding: 4px 10px;
+  border-radius: 15px; font-size: 0.8rem; margin-bottom: 10px;
+}
+.signal { font-size: 2rem; font-weight: 900; margin: 10px 0; }
+.signal.green { color: #4ade80; text-shadow: 0 0 15px rgba(74, 222, 128, 0.4); }
+.signal.red { color: #f87171; text-shadow: 0 0 15px rgba(248, 113, 113, 0.4); }
+
+.stats { display: flex; justify-content: space-between; opacity: 0.8; font-size: 0.9rem; }
+
+.toast {
+  position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+  background: #10b981; color: white; padding: 10px 20px;
+  border-radius: 50px; font-weight: 600; z-index: 100;
+}
+.error { color: #fca5a5; background: rgba(220, 38, 38, 0.2); padding: 10px; border-radius: 8px; margin-top: 15px; }
+
+/* --- ANIMATIONS --- */
+@keyframes floatUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes popIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }

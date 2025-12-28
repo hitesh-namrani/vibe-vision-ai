@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
-
-import React, { useState } from 'react';
-import './App.css';
-import { API_BASE_URL } from './config'; // <--- NEW IMPORT
-
-// const BACKEND_URL = "http://localhost:5000"; // <--- DELETE THIS LINE
+import { API_BASE_URL } from './config';
 
 function App() {
-  const BACKEND_URL = API_BASE_URL; // <--- ADD THIS (Keeps your existing code working)
+  // --- CONFIGURATION ---
+  const BACKEND_URL = API_BASE_URL;
 
-  // ... rest of your code stays exactly the same ...
-function App() {
   // --- STATE MANAGEMENT ---
   const [user, setUser] = useState(null);
   const [credits, setCredits] = useState(0);
@@ -137,7 +131,6 @@ function App() {
         <div className="modal-overlay">
           <div className="payment-card">
             <div className="card-header">
-              {/* RENAMED HERE */}
               <h3>VibeVision Pay</h3>
               <div className="card-logo">VISA</div>
             </div>
@@ -180,37 +173,36 @@ function App() {
         {!user ? (
           /* AUTH SCREEN */
           <div className="auth-box">
-             {/* RENAMED HERE */}
-             <h1>🔮 VibeVision AI</h1>
-             <p>{isSignup ? "Join the Inner Circle" : "Welcome Back"}</p>
-             
-             <form onSubmit={handleAuth} className="auth-form">
-               <input 
-                 type="text" 
-                 placeholder="Username" 
-                 className="vibe-input" 
-                 value={username}
-                 onChange={e=>setUsername(e.target.value)} 
-                 required
-               />
-               <input 
-                 type="password" 
-                 placeholder="Password" 
-                 className="vibe-input" 
-                 value={password}
-                 onChange={e=>setPassword(e.target.value)} 
-                 required
-               />
-               <button className="login-btn" disabled={loading}>
-                 {loading ? "Initializing..." : (isSignup ? "Create ID" : "Enter System")}
-               </button>
-             </form>
+              <h1>🔮 VibeVision AI</h1>
+              <p>{isSignup ? "Join the Inner Circle" : "Welcome Back"}</p>
+              
+              <form onSubmit={handleAuth} className="auth-form">
+                <input 
+                  type="text" 
+                  placeholder="Username" 
+                  className="vibe-input" 
+                  value={username}
+                  onChange={e=>setUsername(e.target.value)} 
+                  required
+                />
+                <input 
+                  type="password" 
+                  placeholder="Password" 
+                  className="vibe-input" 
+                  value={password}
+                  onChange={e=>setPassword(e.target.value)} 
+                  required
+                />
+                <button className="login-btn" disabled={loading}>
+                  {loading ? "Initializing..." : (isSignup ? "Create ID" : "Enter System")}
+                </button>
+              </form>
 
-             <div className="toggle" onClick={()=> {setIsSignup(!isSignup); setMsg(null)}}>
-               {isSignup ? "Already have an account? Login" : "No account? Create one"}
-             </div>
-             
-             {msg && <div className="error">{msg}</div>}
+              <div className="toggle" onClick={()=> {setIsSignup(!isSignup); setMsg(null)}}>
+                {isSignup ? "Already have an account? Login" : "No account? Create one"}
+              </div>
+              
+              {msg && <div className="error">{msg}</div>}
           </div>
         ) : (
           /* DASHBOARD SCREEN */

@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import './App.css';
 
-const BACKEND_URL = "http://localhost:5000";
+import React, { useState } from 'react';
+import './App.css';
+import { API_BASE_URL } from './config'; // <--- NEW IMPORT
 
+// const BACKEND_URL = "http://localhost:5000"; // <--- DELETE THIS LINE
+
+function App() {
+  const BACKEND_URL = API_BASE_URL; // <--- ADD THIS (Keeps your existing code working)
+
+  // ... rest of your code stays exactly the same ...
 function App() {
   // --- STATE MANAGEMENT ---
   const [user, setUser] = useState(null);

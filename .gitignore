@@ -1,0 +1,10 @@
+# --- FRONTEND IGNORES ---
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# --- BACKEND IGNORES ---
+backend/__pycache__/
+backend/venv/
+backend/.env
+backend/database.db    <-- This is the important one!

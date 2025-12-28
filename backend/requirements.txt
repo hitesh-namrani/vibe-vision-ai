@@ -7,3 +7,4 @@ pandas_ta
 numpy
 joblib
 scikit-learn
+gunicorn

@@ -1,67 +1,126 @@
-# 🔮 VibeVision AI<br>
-Real-Time Crypto Market Prediction & Vibe Analysis<br>
-VibeVision AI is a full-stack cryptocurrency market predictor built for the Hackathon. Unlike static dashboards, it uses a TensorFlow Neural Network to analyze live market data (RSI, Bollinger Bands, EMA, MACD) and generate instant "CALL" or "PUT" signals with a confidence score.<br>
-It features a complete credit-based economy simulation with secure mock payments.<br>
-🚀 Key Features<br>
-🧠 Real-Time AI: Fetches live data via yfinance, calculates indicators via pandas_ta, and runs inference on a .h5 deep learning model.<br>
-💎 VibeEconomy: A token system where users start with 50 credits and spend them on predictions.<br>
-💳 VibeVision Pay: A functional mock payment gateway to "top up" credits.<br>
-🔐 Secure Auth: Login/Signup system with password hashing and SQLite storage.<br>
-⚡ Vibe UI: Cyberpunk/Neon aesthetic built with React.<br>
-🛠️ Tech Stack
-Frontend: React.js, CSS3 (Glassmorphism)<br>
-Backend: Python (Flask), TensorFlow/Keras, SQLite<br>
-Data: YFinance (Live Stream), Pandas-TA (Analysis)<br>
-⚙️ How to Run
-1.	Backend Setup
-Navigate to the backend folder, install dependencies, and start the server.
+# 🔮 Vibe Crypto Bot — VibeVision AI
+
+## Real-Time Crypto Market Prediction & Vibe Analysis
+
+**VibeVision AI** is a full-stack cryptocurrency prediction system built for hackathon demonstration.  
+It combines live market data, technical analysis, and a trained TensorFlow neural network to generate **CALL / PUT signals with confidence** — all wrapped inside a cyberpunk-styled React interface.
+
+---
+
+## 🚀 Key Features
+
+### 🧠 AI Prediction Engine
+- Live market data from **yfinance**
+- Indicators via **pandas_ta** (RSI, EMA, MACD, Bollinger Bands, etc.)
+- Deep learning inference using `universal_vibe_model.h5`
+
+### 💎 Vibe Economy Simulation
+- Users start with credits
+- Spend credits to generate predictions
+- Mock payment system to top-up credits
+
+### 🔐 Authentication System
+- Secure login / signup
+- Password hashing
+- SQLite database
+
+### ⚡ Vibe UI
+- Cyberpunk / Neon Glassmorphism
+- Built with React
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer     | Technology            |
+|-----------|-----------------------|
+| Frontend  | React.js, CSS3        |
+| Backend   | Python, Flask         |
+| ML        | TensorFlow / Keras    |
+| Database  | SQLite                |
+| Data      | yfinance, pandas-ta   |
+
+---
+
+## 📂 Project Structure
+```
+vibe-crypto-bot/
+│
+├── backend/
+│ ├── app.py
+│ ├── database.db
+│ ├── universal_vibe_model.h5
+│ ├── scaler.pkl
+│ └── requirements.txt
+│
+├── frontend/
+│ ├── node_modules/
+│ ├── public/
+│ ├── src/
+│ ├── package.json
+│ └── package-lock.json
+│
+├── training/
+│ └── model_training.ipynb
+│
+├── setup.bat # One-click environment setup
+├── run.bat # One-click full project launcher
+├── .gitignore
+└── README.md
+```
+
+---
+
+## ⚙️ How to Run
+
+### 🧪 Method 1 — Manual Setup
+
+#### Backend
 ```
 cd backend
 pip install -r requirements.txt
 python app.py
 ```
-Note: The server will start on http://localhost:5000.
-2.	Frontend Setup
-Open a new terminal, navigate to the frontend folder, install dependencies, and start the app.
+Server starts at: http://localhost:5000
+
+#### Frontend (new terminal)
 ```
 cd frontend
 npm install
 npm start
 ```
-Note: The application will open automatically at http://localhost:3000.
-🕹️ Usage Guide
-Register: Create a new account to receive your 50 Diamond Welcome Bonus.
-Predict: Select a coin (BTC, ETH, SOL) from the dropdown and click Check Vibe.
-The AI analyzes the last 3 months of hourly data.
-It gives a Buy (CALL) or Sell (PUT) signal.
-Top Up: Click Add Funds to simulate a secure payment via VibeVision Pay.
-Logout: Secure your session using the red logout button in the header.
-```
-📂 Project Structure
-vibe-vision-ai/
-├── backend/
-│   ├── app.py                 # Main Flask Application (API & Logic)
-│   ├── database.db            # SQLite User Database (Auto-generated)
-│   ├── universal_vibe_model.h5 # Trained TensorFlow Neural Network
-│   ├── scaler.pkl             # Scikit-learn Data Scaler
-│   ├── .env                   # Environment Secrets (API Keys)
-│   └── requirements.txt       # Python Dependencies
-│
-├── frontend/
-│   ├── public/
-│   │   └── index.html         # HTML Entry Point
-│   ├── src/
-│   │   ├── App.js             # Main React Component & Logic
-│   │   ├── App.css            # Cyberpunk/Glassmorphism Styling
-│   │   └── index.js           # React DOM Renderer
-│   ├── .env                   # Frontend Environment Variables
-│   └── package.json           # Node Dependencies & Scripts
-│
-├── training/
-│   └── model_training.ipynb   # Google Colab Notebook used to train the AI
-│
-└── README.md                  # Project Documentation
-```
-🛡️ Disclaimer
-This project is created for educational purposes and hackathon demonstration only. The AI predictions are for entertainment and do not constitute financial advice.
-# Made with 💜 by Hitesh Namrani
+App opens at: http://localhost:3000
+### ⚡ Method 2 — One-Click Launch (Recommended)
+#### Step 1 — Setup (Run Once)
+
+Double-click:
+
+setup.bat
+
+#### Step 2 — Run Project
+
+Double-click:
+
+run.bat
+
+
+✔ Backend launches
+✔ Frontend launches
+✔ Browser opens automatically
+
+## 🕹️ Usage Guide
+
+Register — Create an account and receive welcome credits
+
+Predict — Select BTC / ETH / SOL → Click Check Vibe
+
+Top Up — Use mock payment system to add credits
+
+Logout — Secure your session anytime
+
+## 🛡️ Disclaimer
+
+This project is created only for educational and hackathon demonstration.
+Predictions are not financial advice.
+
+## 💜 Made with passion by Hitesh Namrani

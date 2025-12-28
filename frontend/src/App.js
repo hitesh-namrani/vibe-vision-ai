@@ -96,7 +96,7 @@ function App() {
     setProcessing(false);
   };
 
-  // --- 4. GET PREDICTION ---
+  // --- 4. GET PREDICTION (FIXED) ---
   const getVibe = async () => {
     if (credits < 2) {
       setMsg("Insufficient Credits! Please Top Up.");
@@ -109,15 +109,18 @@ function App() {
 
     try {
       const res = await fetch(`${BACKEND_URL}/predict?username=${user}&coin=${selectedCoin}`);
-      
-      if (res.status === 402) {
-        setMsg("Insufficient Credits! Please Top Up.");
+      const data = await res.json(); // Parse JSON first
+
+      // 🛑 SAFETY CHECK: If the server returns an error (like 500 or 402)
+      if (!res.ok) {
+        setMsg(data.error || "Prediction Failed"); // Show the error message
       } else {
-        const data = await res.json();
+        // Only update prediction if it's actually valid data
         setPrediction(data);
         setCredits(data.credits_left);
       }
     } catch (err) {
+      console.error(err);
       setMsg("AI Model is waking up... Try again in 10s.");
     }
     setLoading(false);
